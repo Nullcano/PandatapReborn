@@ -1,0 +1,1014 @@
+
+/* Remove blue outline from navbar*/
+a:focus {outline:0!important;}
+
+#incomePerSec, #monDisp {
+    font-size: 2vw !important;
+     min-height: 6vh;
+    max-height: 100%;
+    cursor:default;
+}
+
+/* Arrangements */
+/* Big columns */
+#part1 {
+    border: 1px solid #043755;
+
+}
+
+#popover {
+    z-index: 1060;
+}
+
+/* Smaller columns */
+
+
+
+
+.firstbig, .secondbig, .thirdbig {
+    height: 9.6vh;
+   /* background: -webkit-radial-gradient(rgb(73, 134, 188), rgb(20, 55, 90));
+    background: radial-gradient(rgb(73, 134, 188), rgb(20, 55, 90));*/
+       background: #0B476B;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.05vw white;
+    padding-left: 15px;
+    min-height: 6vh;
+    max-height: 100%;
+    overflow: hidden;
+
+}
+.secondbig {
+
+}
+
+
+.upgrade {
+    height: 83vh;
+
+}
+
+.upgradeheight {
+   /*height: 20vh;*/
+    padding: 0 !important;
+
+}
+
+.hero {
+    height: 33.16vh;
+	width: 33.33vh;
+	position: absolute;
+}
+.heroupgrade {
+    height: 49.84vh;
+	width: 33.33vh;
+}
+
+.clickingrice {
+    height: 33.1vh;
+	width: 33.33vh;
+    text-align: center;
+}
+
+.boss {
+    height: 42vh;
+	width: 33.33vh;
+    text-align: center;
+}
+
+.infodmg {
+	height: 7.9vh;
+    overflow: hidden;
+}
+
+.playernamecol {
+    text-align: center;
+
+}
+/* Scrollbar  */
+.scroll {
+    position: absolute;
+    overflow-y: scroll;
+}
+.scroll2 {
+    position: absolute;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar { width: 10px;}
+
+
+
+::-webkit-scrollbar-track {
+    background-color: #0B486B;
+    border-radius: 13px;}
+
+
+::-webkit-scrollbar-thumb {
+
+    background-color: #ABABAB;
+    border-radius: 16px
+
+;}
+
+/* Navbar */
+.navbar-nav > li {
+  float: left;
+
+}
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right!important;
+}
+
+
+/*Images*/
+
+/* Scaling pictures with the columns*/
+
+@media (max-width: @screen-xs) {
+    body{font-size: 10px;}
+}
+
+@media (max-width: @screen-sm) {
+    body{font-size: 14px;}
+}
+
+
+/*BUtton*/
+.hero {
+	max-width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.herobackground {
+	background: url(../img/dojo.png) no-repeat;
+	background-size: cover;
+}
+
+.bossbackground {
+	background: url(../img/dungeonbackground.png) no-repeat;
+	background-size: cover;
+}
+
+.riceshopbackground {
+	background: url(../img/ShopBackground.jpg) no-repeat;
+	background-size: cover;
+}
+
+.ricecooker {
+    background-image: url('../img/ricecooker.png') ;
+    background-repeat: no-repeat;
+    background-size: 15vw 32vh;
+    height: 32vh;
+    width: 15vw;
+    outline: none !important;
+    background-color:transparent;
+    border: none;
+    cursor:pointer;
+    display: block;
+    overflow: hidden;
+    max-width: 100%;
+	max-height: 100%;
+
+   /* margin: -100px -120px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    display: block;
+    float: none;
+    max-width: 100%;
+    max-height: 100%;*/
+}
+
+/* UPGRADES BUTTONS*/
+ #buyLazyPanda, #buyWorkingPanda, #buyRiceFarm, #buyRiceLab, #buyRiceFactory, #buyRiceBank, #buyPandaTemple, #buyWizardPanda, #buyAlchemyPanda, #buyBambooForest, #buyResearchFacility, #buyPandaSchool, #buyNinjaPanda {
+
+    background-size: 22vw 120px;
+    height: 120px;
+    width: 22vw;
+    outline: none !important;
+    background-color:transparent;
+    /*border: outset;*/
+    /*border-color: #053c5d #011B2A;*/
+    border-color: #011B2A #011B2A;
+    cursor:pointer;
+    overflow: hidden;
+     transition: 300ms linear;
+      -webkit-transition: 500ms all ease;
+    /*Limit stretching*/
+    max-height: 100%;
+    max-width: 100%;
+
+}
+
+
+
+
+#buyLazyPanda {
+background: url('../img/UpgradeButtons/Lazypanda2.png') no-repeat;
+}
+
+#buyWorkingPanda {
+background: url('../img/UpgradeButtons/Workingpanda.png') no-repeat;
+}
+
+#buyWorkingPanda:disabled, #buyRiceFarm:disabled, #buyRiceLab:disabled, #buyRiceFactory:disabled, #buyRiceBank:disabled, #buyPandaTemple:disabled, #buyWizardPanda:disabled, #buyAlchemyPanda:disabled, #buyBambooForest:disabled,   #buyResearchFacility:disabled, #buyPandaSchool:disabled, #buyNinjaPanda:disabled, #heroUpgrade5:disabled, #gloryRoad:disabled  {
+background: url('../img/lockedbutton.png') no-repeat;
+
+}
+
+#heroUpgrade2:disabled, #heroUpgrade3:disabled, #heroUpgrade4:disabled {
+    cursor: no-drop;
+}
+#buyRiceFarm {
+background: url('../img/UpgradeButtons/riceFarm.png') no-repeat;
+}
+
+#buyRiceLab {
+background: url('../img/UpgradeButtons/riceLab.png') no-repeat;
+}
+
+#buyRiceFactory {
+background: url('../img/UpgradeButtons/ricefactory.png') no-repeat;
+}
+
+#buyRiceBank {
+background: url('../img/UpgradeButtons/riceBank.png') no-repeat;
+}
+
+#buyPandaTemple {
+background: url('../img/UpgradeButtons/pandaTemple.png') no-repeat;
+}
+
+#buyWizardPanda {
+background: url('../img/UpgradeButtons/wizardPanda.png') no-repeat;
+}
+
+#buyAlchemyPanda {
+background: url('../img/UpgradeButtons/alchemyPanda.png') no-repeat;
+}
+
+#buyBambooForest {
+background: url('../img/UpgradeButtons/bambooForest.png') no-repeat;
+}
+
+#buyResearchFacility {
+background: url('../img/UpgradeButtons/researchFacility.png') no-repeat;
+}
+
+#buyPandaSchool {
+background: url('../img/UpgradeButtons/pandaSchool.png') no-repeat;
+}
+
+#buyNinjaPanda {
+background: url('../img/UpgradeButtons/ninjaPanda.png') no-repeat;
+}
+
+/* Bosses*/
+
+.bossSprite {
+       background: url('../img/dragon.gif') no-repeat;
+    background-size: 12vw 22vh;
+    height: 22vh;
+    width: 12vw;
+    outline: none !important;
+    background-color:transparent;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+      position: fixed;
+    /*Limit stretching*/
+    max-height: 100%;
+    max-width: 100%;
+}
+/* UPGRADES BUTTONS HEROES*/
+
+#heroUpgrade1,#heroUpgrade2,#heroUpgrade3,#heroUpgrade4, #heroUpgrade5, #gloryRoad {
+    background-size: 350px 120px;
+    height: 120px;
+    width: 22vw;
+    outline: none !important;
+    background-color:transparent;
+    border: ;
+    border-color: #011B2A #011B2A;
+    border-style: ;
+    cursor:pointer;
+    overflow: hidden;
+       transition: 300ms linear;
+     -webkit-transition: 500ms all ease;
+    /*Limit stretching*/
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#heroUpgrade1 {
+background: url('../img/HeroUpgradeButtons/heroupgrade1.png') no-repeat;
+}
+#heroUpgrade2 {
+background: url('../img/HeroUpgradeButtons/hotpandaGirl.png') no-repeat;
+}
+#heroUpgrade3 {
+background: url('../img/HeroUpgradeButtons/Pandasensei.png') no-repeat;
+}
+#heroUpgrade4 {
+background: url('../img/HeroUpgradeButtons/superRiceCooker.png') no-repeat;
+}
+#heroUpgrade5 {
+background: url('../img/HeroUpgradeButtons/chef.png') no-repeat;
+}
+#gloryRoad {
+background: url('../img/HeroUpgradeButtons/gloryRoad.png') no-repeat;
+}
+
+
+
+.statback {
+    background: #032f4a;/*#0B476B; */
+
+    background-size: 350px 120px;
+    height: 120px;
+    width: 350px;
+    -webkit-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+
+}
+.statback2, .statback3, .statback4, .statback5, .statback6, .statback6, .statback7, .statback8, .statback9, .statback10 {
+    background: #032f4a;/*#0B476B; */
+
+    background-size: 350px 120px;
+    height: 120px;
+    width: 350px;
+    -webkit-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+
+}
+
+.upgradeprice, .upgradeamount {
+
+    white-space: nowrap;
+    font-size: 1.6vw;
+    color: white;
+    text-align: left;
+    margin-left: 1vw;
+    overflow: hidden;
+    text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.05vw white;
+
+
+}
+
+.vertical-align-top {
+    position: relative;
+    top: 30%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.vertical-align-bottom {
+    position: relative;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.themeicon {
+    height: 1.5vw;
+}
+
+.ricecooker {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.ricecooker:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Input bars */
+
+#selectName {
+    margin-top:-22px !important;
+}
+#selectName[type=text] {
+background: #0B476B;
+color: white;
+width: 100%;
+text-align: center;
+ -webkit-transition: 500ms all ease;
+transition: 500ms all ease;
+border:none;
+outline: none;
+  text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.05vw white;
+    height: 10vh;
+}
+
+
+/* When the input field gets focus, change its width to 100% */
+#selectName[type=text]:focus {
+    width: 90%;
+
+}
+
+
+/*Name select button*/
+/*Button animation*/
+/* Icon Wobble Horizontal */
+@-webkit-keyframes hvr-icon-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  33.3% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  49.95% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+  66.6% {
+    -webkit-transform: translateX(-2px);
+    transform: translateX(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes hvr-icon-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  33.3% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  49.95% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+  66.6% {
+    -webkit-transform: translateX(-2px);
+    transform: translateX(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+#nameSelectBtn {
+
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+     background: #0B476B;
+    color: white;
+    border:none;
+    outline: none;
+    transition: 500ms all ease;
+     -webkit-transition: 500ms all ease;
+    right:3em;
+  vertical-align: top;
+}
+
+#nameSelectBtn:before {
+  content: "\f00c";
+  position: absolute;
+  font-family: FontAwesome;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+#nameSelectBtn:hover:before, #nameSelectBtn:focus:before, #nameSelectBtnl:active:before {
+  -webkit-animation-name: hvr-icon-wobble-horizontal;
+  animation-name: hvr-icon-wobble-horizontal;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+/* Upgrade click*/
+
+.upgradeclick {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    -webkit-transition-property: transform;
+    transition-property: transform
+}
+
+.upgradeclick:active {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px)
+}
+
+/* Boss click*/
+
+@keyframes hvr-buzz-out {
+    10% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        transform: translateX(3px) rotate(2deg)
+    }
+    20% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform: translateX(-3px) rotate(-2deg)
+    }
+    30% {
+        -webkit-transform: translateX(3px) rotate(2deg);
+        transform: translateX(3px) rotate(2deg)
+    }
+    40% {
+        -webkit-transform: translateX(-3px) rotate(-2deg);
+        transform: translateX(-3px) rotate(-2deg)
+    }
+    50% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform: translateX(2px) rotate(1deg)
+    }
+    60% {
+        -webkit-transform: translateX(-2px) rotate(-1deg);
+        transform: translateX(-2px) rotate(-1deg)
+    }
+    70% {
+        -webkit-transform: translateX(2px) rotate(1deg);
+        transform: translateX(2px) rotate(1deg)
+    }
+    80% {
+        -webkit-transform: translateX(-2px) rotate(-1deg);
+        transform: translateX(-2px) rotate(-1deg)
+    }
+    90% {
+        -webkit-transform: translateX(1px) rotate(0);
+        transform: translateX(1px) rotate(0)
+    }
+    100% {
+        -webkit-transform: translateX(-1px) rotate(0);
+        transform: translateX(-1px) rotate(0)
+    }
+}
+
+.bossSprite {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+      -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.bossSprite:active {
+  -webkit-transform: scale(1.7);
+  transform: scale(1.7);
+}
+
+
+
+/*Placeholder color */
+*::-webkit-input-placeholder {
+    color: white;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: white;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: white;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: white;
+}
+
+/* Progress bar*/
+
+.hpbar {
+    margin-left: -15px;
+    margin-right: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+
+
+}
+
+/* Tool tip*/
+.upgradeclick + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 10px;
+      font-size: 1.8vh;
+    width: 100%;
+    width:15vw;
+  min-width: 10vw;
+  max-width: 25vw;
+  }
+
+#bossDMG + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.6vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+    position: relative;
+    display: block;
+}
+
+.bigTooltip + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 2.2vh;
+    width: 100%;
+    width:15vw;
+    min-width: 10vw;
+    max-width: 15vw;
+}
+
+#clickMoney + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.6vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+}
+#bossDMG + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.6vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+}
+
+#bonusIncome + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.6vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+}
+#bossKills + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.8vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+}
+
+#bossSpeed + .tooltip > .tooltip-inner {
+      background-color: rgba(0, 0, 0, 0.98);
+      text-align: left;
+      color: #FFFFFF;
+      border: 3px double gold;
+      padding: 0.8vmin;
+      font-size: 1.8vh;
+    width: 100%;
+    width:10vw;
+    min-width: 5vw;
+    max-width: 15vw;
+}
+
+  /* Tooltip on bottom */
+  .upgradeclick + .tooltip.bottom > .tooltip-arrow {
+      border-bottom: 5px solid blue;
+  }
+
+/* Save button*/
+#save {
+    cursor:pointer;
+}
+
+/* Initate fight button*/
+figure {
+    width: 15vw;
+     position:absolute;
+    top:50%;
+    margin-top: 10vh;
+    height: 60px;
+    cursor: pointer;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+
+}
+
+figure div {
+    height: 100%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+
+figure:hover div {
+    transform: rotateX(-90deg);
+}
+
+.initiateBF {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    line-height: 50px;
+    font-size: 1.2vw;
+    text-align: center;
+    text-transform: uppercase;
+    background: #0B476B;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.initiateBF:nth-child(1) {
+    color: white;
+    transform: translate3d(0, 0, 30px);
+    -webkit-transform: translate3d(0, 0, 30px);
+}
+
+.initiateBF:nth-child(2) {
+    color: #0B476B;
+    background: white;
+    border: 4px solid #0B476B;
+    transform: rotateX(90deg) translate3d(0, 0, 30px);
+    -webkit-transform: rotateX(90deg) translate3d(0, 0, 30px);
+}
+
+/*Boss kills icon*/
+#bossKills {
+    float: left;
+    color: white;
+    margin-left:1vw;
+    margin-top:-0.3vh;
+    position: fixed;
+    font-size: 2.7vh;
+    cursor:pointer;
+    text-shadow: 1px 1px 1px black;
+    -webkit-text-stroke:0.05vw white;
+}
+#bossSpeed {
+    float: left;
+    color: white;
+    margin-left:1vw;
+    margin-top:5vh;
+    position: fixed;
+    font-size: 2.7vh;
+    cursor:pointer;
+    text-shadow: 1px 1px 1px black;
+    -webkit-text-stroke:0.05vw white;
+}
+
+#bossDMG {
+
+    color: white;
+    font-size: 3vh;
+    cursor:pointer;
+ text-shadow: 1px 1px 1px black;
+
+}
+
+#clickMoney {
+
+    color: white;
+    font-size: 3vh;
+    cursor:pointer;
+ text-shadow: 1px 1px 1px black;
+
+}
+
+#bonusIncome {
+
+    color: white;
+    font-size: 3vh;
+  cursor:pointer;
+ text-shadow: 1px 1px 1px black;
+
+}
+
+#bossName {
+    color:white;
+    margin-left: 7.7vw;
+    text-align: center;
+    position:fixed;
+        font-size: 3vh;
+    white-space: nowrap;
+
+}
+#CountDownTimer {
+    width:70px;
+    color:white;
+}
+
+#HPNum {
+    color: #0B476B;
+    font-size: 1.5vw;
+   text-shadow: 2px -1px 2px rgba(255, 255, 255, 0.5);
+    font-weight: bolder;
+    line-height: 250%;
+}
+
+.modal-body, .modal-header, .modal-footer {
+    background-color: #0B476B;
+    color: white;
+}
+#button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 100px;
+    top: 100px;
+    background-color: #BBB;
+}
+
+#displayNum {
+  font-size: 2vw;
+    cursor: pointer;
+  color:white;
+     text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.05vw white;
+
+}
+
+
+#displayNum2 {
+  font-size: 2vw;
+    cursor: pointer;
+  color:white;
+     text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.05vw white;
+
+}
+
+/*Hero stats backgrund*/
+.herostatsbackground {
+background-color: #0B476B;
+opacity: 0.9;
+white-space: nowrap;
+
+margin-left: -12vw;
+border: solid;
+border-color:#0B476B;
+width: 13.5vmin;
+border-width: 2vmin;
+position:absolute;
+     -webkit-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+    box-shadow: -7px 0px 12px 0px rgba(0,0,0,0.37);
+}
+
+
+/* Boss name text*/
+#bossName:hover {
+  -webkit-animation: neon2 0.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 0.5s ease-in-out infinite alternate;
+  animation: neon2 0.5s ease-in-out infinite alternate;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#bossName {
+    color: #0B476B;
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+    cursor: default;
+      text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.03vw white;
+}
+
+@-webkit-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}
+
+@-moz-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}
+
+@keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}
+
+div.dimmed {
+  border: 2px #043755 solid;
+  opacity:    0.98;
+  background: #0B476B;
+  width:      66.4vw;
+  height:     51vh;
+  z-index:    10;
+  top:        50vh;
+  left:       33.6vw;
+  position:   fixed;
+  color: white;
+  font-size: 10vh;
+  text-align: center;
+  cursor: default;
+  padding-top: 15vh;
+  max-width: 66.4vw;
+
+}
+
+div.dimmed a {
+font-family: 'Iceland', cursive;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+    text-decoration: none;
+     color: #0B476B;
+    cursor: default;
+      text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke:0.03vw white;
+}
+div.dimmed a:hover {
+     transition: 500ms linear;
+     -webkit-transition: 500ms all ease;
+    -webkit-animation: neon2 0.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 0.5s ease-in-out infinite alternate;
+  animation: neon2 0.5s ease-in-out infinite alternate;
+
+
+}

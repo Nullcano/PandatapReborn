@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Base Game</title>
+  <meta content="Base Game" name="description">
+  <meta charset="utf-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta content="Shimeri" name="author">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/TimeCircles.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/toastr.min.css" rel="stylesheet">
+  <link href="img/icon.png" rel="icon" type="image/png">
+</head>
+<body id="load">
+  <!-- Modal About-->
+  <div class="modal fade" id="modalAbout" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h4 class="modal-title">About</h4>
+        </div>
+        <div class="modal-body">
+          <h4>Background</h4>
+          <p>Panda Tap is an <a href="https://www.reddit.com/r/incremental_games/">incremental game</a>. This game is made as a group project.</p>
+          <h4>Contact</h4>
+          <p>Please feel free to contact us with any questions or comments about the game. We appreciate all questions and suggestions.</p>
+          <h4>Tools</h4>
+          <p>HTML, CSS, Bootstrap, Javascript, Jquery.</p>
+          <h4>Known bugs</h4>
+          <p>None at the moment...</p>
+          <h4>Donate here</h4><button class="btn btn-default" id="donate" onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=GKHCCYBPG9K5S')">Donate</button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- Modal Help -->
+  <div class="modal fade" id="modalHelp" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h4 class="modal-title">Help</h4>
+        </div>
+        <div class="modal-body">
+          <h4>Introduction</h4>
+          <p>Panda Tap is an incremental game based off pandas. Your goal is to collect rice, defeat monsters, and gain money to advance. To help you, there are many upgrades to unlock along the way. The upgrades are divided into income upgrades and hero upgrades.</p>
+          <h4>Rice shop</h4>
+          <p>Click at the large shop in the upper right to sell rice, which gives you money.</p>
+          <h4>Monsters</h4>
+          <p>Click the large button on the bottom right to fight the current monster. You have a timer to defeat the monster. Each monster has its own speed, which increases each time you defeat it. After defeating a monster <strong>ten</strong> times, you will gain money and increased income. These monsters get harder to defeat as you progress.</p>
+          <h4>Upgrades</h4>
+          <p>After collecting enough money, you will be able to upgrade. The left column have upgrades for your rice shop, while the column at the center contains upgrades for your hero.</p>
+          <h4>Numbers</h4>
+          <p>Reference list of large numbers:</p>
+          <ul>
+            <li>10<sup>3</sup> - thousand (k)</li>
+            <li>10<sup>6</sup> - million (m)</li>
+            <li>10<sup>9</sup> - billion (b)</li>
+            <li>10<sup>12</sup> - trillion (m)</li>
+            <li>10<sup>15</sup> - quadrillion (qd)</li>
+            <li>10<sup>18</sup> - quintillion (qt)</li>
+            <li>10<sup>21</sup> - sextillion (sx)</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default modalbtn" data-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- Modal Changelog -->
+  <div class="modal fade" id="changelog" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h4 class="modal-title">Changelog</h4>
+        </div>
+        <div class="modal-body">
+          <p>v1: Added autosaving.</p>
+          <p>Beta</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- Modal Achievements -->
+  <div class="modal fade" id="achievements" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h4 class="modal-title">Achivements</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- Modal end-->
+  <!-- Modal Reset -->
+  <div class="modal fade" id="modalReset" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <center>
+            <h4 class="modal-title">Do you really want to reset?</h4>
+          </center>
+        </div>
+        <div class="modal-footer">
+          <center>
+            <button class="btn btn-default" data-dismiss="modal" id="hardReset" type="button">Yes</button> <button class="btn btn-default" data-dismiss="modal" type="button">No</button>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div><!-- Modal end-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Panda Tap</a>
+      </div><!-- Collect the nav links, forms, and other content for toggling -->
+      <div id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="divider-vertical"></li>
+          <li>
+            <a id="save"><i aria-hidden="true" class="fa fa-floppy-o"></i></a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li>
+            <a data-toggle="modal" href="#modalHelp">Help</a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li>
+            <a data-toggle="modal" href="#modalAbout">About</a>
+          </li>
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a data-toggle="modal" href="#changelog"><i aria-hidden="true" class="fa fa-book"></i> - Changelog</a>
+              </li>
+              <li class="divider" role="separator"></li>
+              <li>
+                <a data-toggle="modal" href="#achievements"><i aria-hidden="true" class="fa fa-trophy"></i> - Achievements</a>
+              </li>
+              <li class="divider" role="separator"></li>
+              <li>
+                <a data-toggle="modal" href="#modalReset"><i aria-hidden="true" class="fa fa-refresh"></i> - Reset save</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="page-header"></div>
+  <div class="dimmed">
+    <a>UNLOCK AT 2ND UPGRADE</a>
+  </div>
+  <div class="row">
+    <!-- Column 1-->
+    <!-- Upgrades-->
+    <div class="col-xs-4" id="part1">
+      <div class="row firstbig" id="part1">
+        <h1 class="bigTooltip" data-placement="bottom" data-toggle="tooltip" id="incomePerSec" title="This is the income of your rice shop">$$$</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 upgrade scroll2" id="part2">
+          <h1></h1>
+          <div class="container-fluid">
+            <!-- Lazy Panda-->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="bottom" data-toggle="tooltip" id="buyLazyPanda" title="&lt;code&gt;&lt;strong&gt; Lazy Panda&lt;/strong&gt;&lt;/code&gt; is lazy, but will help you produce rice faster &lt;br&gt;&lt;br&gt; Increases your income by 0.10 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceLazyPanda"><span></span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="lazyPandaAmount"><span></span></p>
+                </div>
+              </div>
+            </div><!-- Lazy Panda END -->
+            <!-- Working Panda-->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyWorkingPanda" title="&lt;code&gt;&lt;strong&gt; Working Panda&lt;/strong&gt;&lt;/code&gt; likes to work and will help you produce rice &lt;br&gt;&lt;br&gt; Increases your income by 1 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceWorkingPanda"><span><img class="themeicon" src="img/coin.svg"> 100</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="workingPandaAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Working Panda END-->
+            <!-- Rice Farm -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyRiceFarm" title="&lt;code&gt;&lt;strong&gt; Rice Farm&lt;/strong&gt;&lt;/code&gt; consists of pandas that will help you farm more rice &lt;br&gt;&lt;br&gt; Increases your income by 8 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceRiceFarm"><span><img class="themeicon" src="img/coin.svg"> 1100</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="riceFarmAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Rice farm END -->
+            <!-- Rice Lab -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyRiceLab" title="&lt;code&gt;&lt;strong&gt; Rice Lab&lt;/strong&gt;&lt;/code&gt; researches and increases rice productions &lt;br&gt;&lt;br&gt; Increases your income by 47 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceRiceLab"><span><img class="themeicon" src="img/coin.svg"> 12000</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="riceLabAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Rice Lab END -->
+            <!-- Rice Factory -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyRiceFactory" title="&lt;code&gt;&lt;strong&gt; Rice Factory&lt;/strong&gt;&lt;/code&gt; consists of a workforce to reckon with. Helps you produce even more rice &lt;br&gt;&lt;br&gt; Increases your income by 260 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceRiceFactory"><span><img class="themeicon" src="img/coin.svg"> 130000</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="riceFactoryAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Rice Factory END -->
+            <!-- Rice Bank -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyRiceBank" title="&lt;code&gt;&lt;strong&gt; Rice Bank&lt;/strong&gt;&lt;/code&gt; stores and earns more money for you &lt;br&gt;&lt;br&gt; Increases your income by 1400 gold"></button>
+              </div>
+              <div class="col-xs-4 statback2">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceRiceBank"><span><img class="themeicon" src="img/coin.svg"> 1.4 m</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="riceBankAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Rice Bank END -->
+            <!-- Panda Temple -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyPandaTemple" title="&lt;code&gt;&lt;strong&gt; Panda Temple&lt;/strong&gt;&lt;/code&gt; earns reputation and helps your workers for better rice productions &lt;br&gt;&lt;br&gt; Increases your income by 7800 gold"></button>
+              </div>
+              <div class="col-xs-4 statback3">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="pricePandaTemple"><span><img class="themeicon" src="img/coin.svg"> 20 m</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="pandaTempleAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Panda Temple END -->
+            <!-- Wizard Panda -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="buyWizardPanda" title="&lt;code&gt;&lt;strong&gt; Wizard Panda&lt;/strong&gt;&lt;/code&gt; uses magic for better rice harvest. &lt;br&gt;&lt;br&gt; Increases your income by 44.000 gold"></button>
+              </div>
+              <div class="col-xs-4 statback4">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceWizardPanda"><span><img class="themeicon" src="img/coin.svg"> 330 m</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="wizardPandaAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Wizard Panda END -->
+            <!-- Alchemy Panda -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-toggle="tooltip" disabled id="buyAlchemyPanda" title="&lt;code&gt;&lt;strong&gt; Alchemy Panda&lt;/strong&gt;&lt;/code&gt; brews the latest of alchemy to help you increase the quality of your rice &lt;br&gt;&lt;br&gt; Increases your income by 1.60m gold"></button>
+              </div>
+              <div class="col-xs-4 statback5">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceAlchemyPanda"><span><img class="themeicon" src="img/coin.svg"> 75 b</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="alchemyPandaAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Alchemy Panda END -->
+            <!-- Bamboo Forest -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-toggle="tooltip" disabled id="buyBambooForest" title="&lt;code&gt;&lt;strong&gt; Bamboo Forest&lt;/strong&gt;&lt;/code&gt; inspires your hired pandas to work harder&lt;br&gt;&lt;br&gt; Increases your income by 10m gold"></button>
+              </div>
+              <div class="col-xs-4 statback6">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceBambooForest"><span><img class="themeicon" src="img/coin.svg"> 1 t</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="bambooForestAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Bamboo Forest END -->
+            <!-- Research Facility -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-toggle="tooltip" disabled id="buyResearchFacility" title="&lt;code&gt;&lt;strong&gt; Research Facility.&lt;/strong&gt;&lt;/code&gt; reasearches the newest of panda technology &lt;br&gt;&lt;br&gt; Increases your income by 65m gold"></button>
+              </div>
+              <div class="col-xs-4 statback7">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceResearchFacility"><span><img class="themeicon" src="img/coin.svg"> 14 t</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="researchFacilityAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Research Facility END -->
+            <!-- Panda School -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-toggle="tooltip" disabled id="buyPandaSchool" title="&lt;code&gt;&lt;strong&gt;Panda School&lt;/strong&gt;&lt;/code&gt; is important for the education of your pandas, making them even for efficient&lt;br&gt; &lt;br&gt; Increases your income by 430 m gold"></button>
+              </div>
+              <div class="col-xs-4 statback8">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="pricePandaSchool"><span><img class="themeicon" src="img/coin.svg"> 170 t</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="pandaSchoolAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Panda School END -->
+            <!-- Ninja Panda -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-toggle="tooltip" disabled id="buyNinjaPanda" title="&lt;code&gt;&lt;strong&gt; Ninja Panda&lt;/strong&gt;&lt;/code&gt; swiftly rakes in a ton of money for you &lt;br&gt; &lt;br&gt; Increases your income by 2.9b gold"></button>
+              </div>
+              <div class="col-xs-4 statback9">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceNinjaPanda"><span><img class="themeicon" src="img/coin.svg"> 2.1 qd</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="ninjaPandaAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div>- <!-- Ninja Panda END -->
+             <!--  -->
+          </div>
+        </div>
+      </div>
+    </div><!-- Column 2-->
+    <!-- Hero character -->
+    <div class="col-xs-4 playernamecol" id="part1">
+      <div class="row secondbig" id="part1">
+        <h1 id="playerName"><input id="selectName" maxlength="15" placeholder="Your name here:" type="text"> <button id="nameSelectBtn">&#8291;</button></h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 hero herobackground">
+          <div class="herostatsbackground">
+            <h1 data-placement="right" data-toggle="tooltip" id="bossDMG" title="Boss Damage &lt;br&gt;Click damage against the boss."></h1>
+            <h1 data-placement="right" data-toggle="tooltip" id="clickMoney" title="Click Money&lt;br&gt; Gold you gain each click on the rice bowl."></h1>
+            <h1 data-placement="right" data-toggle="tooltip" id="bonusIncome" title="Bonus income you gain for each ten monsters you slay."></h1>
+          </div>
+          <div id="canvasdiv"></div>
+          <script src="js/main.character.js" type="text/javascript">
+          </script>
+          <script type="text/javascript">
+          prepareCanvas(document.getElementById("canvasdiv"), 490, 220);
+          </script>
+        </div>
+      </div><!-- Hero upgrades-->
+      <div class="row">
+        <div class="col-xs-12 heroupgrade scroll2" id="part2">
+          <h1></h1>
+          <div class="container-fluid">
+            <!-- heroUpgrade4 -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="bottom" data-toggle="tooltip" id="heroUpgrade4" title="&lt;code&gt;&lt;strong&gt; Super Rice Cooker&lt;/strong&gt;&lt;/code&gt; enhances your rice shop, increasing the amount of money you get each click&lt;br&gt;&lt;br&gt;Increases click money by 1 gold"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceClick"><span><img class="themeicon" src="img/coin.svg"> N/A</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="heroUpgrade4Amount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- heroUpgrade4 END-->
+            <!-- heroUpgrade5 -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="heroUpgrade5" title="&lt;code&gt;&lt;strong&gt; Homan Chef&lt;/strong&gt;&lt;/code&gt; learns you the secret cuisine of Pandas&lt;br&gt;&lt;br&gt;Increases click money by 1% of your income"></button>
+              </div>
+              <div class="col-xs-4 statback10">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceClickPerc"><span><img class="themeicon" src="img/coin.svg"> N/A</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="heroUpgrade5Amount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- heroUpgrade5 END-->
+            <!-- Baseballbat-->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" id="heroUpgrade1" title="&lt;code&gt;&lt;strong&gt; Sword of Damocles&lt;/strong&gt;&lt;/code&gt; gives your panda more damage against the monsters&lt;br&gt;&lt;br&gt; Increases damage by 1"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceSword"><span><img class="themeicon" src="img/coin.svg"> 50</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="heroUpgrade1Amount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Baseballbat END-->
+            <!-- GloryRoad -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" disabled id="gloryRoad" title="&lt;code&gt;&lt;strong&gt; Glory Road&lt;/strong&gt;&lt;/code&gt; gives your panda more damage against the monsters&lt;br&gt;&lt;br&gt; Increases damage by 5"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="priceGloryRoad"><span><img class="themeicon" src="img/coin.svg"> N/A</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="gloryRoadAmount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- Glory Road END-->
+            <!-- heroUpgrade2 -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" id="heroUpgrade2" title="&lt;code&gt;&lt;strong&gt; Panda Girl&lt;/strong&gt;&lt;/code&gt; makes you last longer, increasing the time you can battle against monsters&lt;br&gt;&lt;br&gt;Increases timer by 1 second"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="pricegf"><span><img class="themeicon" src="img/coin.svg"> N/A</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="heroUpgrade2Amount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- heroUpgrade2 END-->
+            <!-- heroUpgrade3 -->
+            <div class="row" id="part2">
+              <div class="col-xs-8 upgradeheight">
+                <button class="btn-default btn-responsive upgradeclick" data-placement="top" data-toggle="tooltip" id="heroUpgrade3" title="&lt;code&gt;&lt;strong&gt; Sensei Panda&lt;/strong&gt;&lt;/code&gt; learns you the way of the Panda, increasing the time you can battle against monsters&lt;br&gt;&lt;br&gt;Increases timer by 5 seconds"></button>
+              </div>
+              <div class="col-xs-4 statback">
+                <div class="row vertical-align-top">
+                  <span></span>
+                  <p class="upgradeprice" id="pricesensei"><span><img class="themeicon" src="img/coin.svg"> N/A</span></p>
+                </div>
+                <div class="row vertical-align-bottom">
+                  <span></span>
+                  <p class="upgradeamount" id="heroUpgrade3Amount"><span><img class="themeicon" src="img/wallet.svg"> 0</span></p>
+                </div>
+              </div>
+            </div><!-- heroUpgrade3 END-->
+            <p>.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- Column 3-->
+    <!-- Info here -->
+    <div class="col-xs-4 moneydisplay" id="part1">
+      <div class="row thirdbig" id="part1">
+        <h1 class="bigTooltip" data-placement="bottom" data-toggle="tooltip" id="monDisp" title="This is your total money">Rich</h1>
+      </div><!-- Gathering rice here -->
+      <div class="row">
+        <div class="col-xs-12 clickingrice riceshopbackground" id="part2">
+          <button class="ricecooker" id="makeMon"></button>
+          <div id="displayNum"></div>
+        </div>
+      </div><!-- Info here-->
+      <div class="row">
+        <div class="col-xs-12 infodmg" id="part2">
+          <div class="progress hpbar">
+            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" class="progress-bar progress-bar-success" id="HPBar" role="progressbar" style="width:100%;">
+              <span id="HPNum">Health</span>
+            </div>
+          </div>
+        </div><!-- Monster/boss-->
+        <div class="col-xs-12 boss bossbackground" id="part2">
+          <h1 id="bossName">Boss Name</h1>
+          <div id="CountDownTimer"></div>
+          <h1 data-placement="left" data-toggle="tooltip" id="bossKills" title=" This is the amount of bosses you have defeated."></h1>
+          <h1 data-placement="left" data-toggle="tooltip" id="bossSpeed" title="The speed of the boss which decides how fast the it is moving."></h1>
+          <h1 id="bossFight"></h1>
+          <figure>
+            <div>
+              <button class="initiateBF">Initiate boss fight!</button> <button class="initiateBF" id="startBF">Go!</button>
+            </div>
+          </figure><button class="bossSprite" id="boss"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/myscript.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/designevents.js"></script>
+  <script src="js/Modernizr.js"></script>
+  <script src="js/TimeCircles.js"></script>
+  <script src="js/toastr.min.js"></script>
+  <script src="js/floating.js"></script>
+</body>
+</html>
